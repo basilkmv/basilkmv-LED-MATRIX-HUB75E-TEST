@@ -125,9 +125,9 @@ void matrixSetBrightness(uint8_t bright){
 uint16_t val;
 
   val = (MIN_BRIGHT + (MAX_BRIGHT - MIN_BRIGHT)*bright/100);
-  registers[REG_BRIGHT].valueR =  (registers[REG_BRIGHT].valueR & 0xff00) | val;
-  registers[REG_BRIGHT].valueG =  (registers[REG_BRIGHT].valueG & 0xff00) | val;
-  registers[REG_BRIGHT].valueB =  (registers[REG_BRIGHT].valueB & 0xff00) | val;
+  registers[REG_BRIGHT].valueR =  (registers[REG_BRIGHT].valueR & 0xfc00) | val;
+  registers[REG_BRIGHT].valueG =  (registers[REG_BRIGHT].valueG & 0xfc00) | val;
+  registers[REG_BRIGHT].valueB =  (registers[REG_BRIGHT].valueB & 0xfc00) | val;
   pwmStop();
   
   sendPreCmd();
